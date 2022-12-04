@@ -20,7 +20,7 @@ Copyright © 2022 OOTA, Masato
 ## Introduction
 This is a niche library to serialize/deserialize an angle @ turn to/from @ degree.
 
-Commonly, In the embedded applications and the hardware logics that handle an angle, the engineers use 2π rad / 2<sup>n</sup> as unit of the angle; 2π rad / 2<sup>n</sup> means that 2<sup>n</sup> represent a full circle so it makes easy to handle wrap around. They consider the number as a fixed point number, meaning 2<sup>n</sup> as 1.0, so this library calls the unit 'turn'.
+Commonly, in the embedded applications and the hardware logics that handle an angle, the engineers use 2π rad / 2<sup>n</sup> as unit of the angle; 2π rad / 2<sup>n</sup> means that 2<sup>n</sup> represent a full circle so it makes easy to handle wrap around. They consider the number as a fixed point number, meaning 2<sup>n</sup> as 1.0, so this library calls the unit 'turn'.
 
 When you would serialize an angle @ turn for data exchange, you can multiply it by 2π and output it as a double value, it's a proper solution and you have no need to use this library, but in case your clients look in a data file and say "The unit should be degree" and "It should be 20 instead of 20.00061", this library comes on stage.
 
@@ -35,7 +35,7 @@ This library uses a variation of (FPP)<sub>2</sub> in [dragon4](https://dl.acm.o
 Note that it means that when a bit-width of a value is a quite small, such as 8, LSB is larger than you might expect and the result might be against your intuition. However, I guess you and your clients must be experts in your application and numeric calculation if you may determine a sufficient bit-width to be such a small number.
 
 ## Three Functions to Serialize
-There are three functions to serialize. The basic function is [serialize_turn_to_deg()](@ref serialize_turn_to_deg()) and I recommend it in most cases. When You want to specify the number of the digit, you can use [serialize_turn_to_deg_p()](@ref serialize_turn_to_deg_p()). To suppress a series of the lowest digits zero, [serialize_turn_to_deg_ps()](@ref serialize_turn_to_deg_ps()).
+There are three functions to serialize. The basic function is [serialize_turn_to_deg()](@ref serialize_turn_to_deg()) and I recommend it in most cases. When you want to specify the number of the digit, you can use [serialize_turn_to_deg_p()](@ref serialize_turn_to_deg_p()). To suppress a series of the lowest digits zero, [serialize_turn_to_deg_ps()](@ref serialize_turn_to_deg_ps()).
 
 A example of bit_width = 16
 | angle | result#1 | result#2 | result#3 |
