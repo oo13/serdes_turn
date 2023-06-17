@@ -83,6 +83,24 @@ The unit test code is written by C99, since the code needs variadic macros and \
 % make
 ```
 
+If you want to use meson:
+```
+% cd serdes_turn
+% meson setup build
+% cd build
+% meson test
+```
+
+## Install
+Use meson:
+```
+% cd serdes_turn
+% meson setup build
+% cd build
+% meson install
+```
+It generates and installs a library, a header, and some manual files.
+
 ## License
 See copyright file for the copyright notice and the license details.
 
