@@ -43,14 +43,15 @@
 #if UINT_MAX < 0xFFFFFFFFu
 #error UINT_MAX is too small.
 #endif
-#if SERDES_TURN_DEG_BUF_SIZE < SERDES_TURN_DEG_MAX_PLACE - SERDES_TURN_MIN_PLACE + 1 + 2 /* digits, decimal point, and NUL */
-#error SERDES_TURN_DEG_BUF_SIZE is too small.
-#endif
 
 /** The highest place of digit in the serialized string. */
 #define SERDES_TURN_DEG_MAX_PLACE (-SERDES_TURN_DEG_MIN_PRECISION)
 /** The lowest place of digit in the serialized string. */
 #define SERDES_TURN_DEG_MIN_PLACE (-SERDES_TURN_DEG_MAX_PRECISION)
+
+#if SERDES_TURN_DEG_BUF_SIZE < SERDES_TURN_DEG_MAX_PLACE - SERDES_TURN_DEG_MIN_PLACE + 1 + 2 /* digits, decimal point, and NUL */
+#error SERDES_TURN_DEG_BUF_SIZE is too small.
+#endif
 
 /** The index that is equivalent the place\#k. */
 #define BUF_INDEX(k) (SERDES_TURN_DEG_MAX_PLACE - (k))
